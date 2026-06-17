@@ -279,11 +279,41 @@ The shell molts. The laws do not.
 
 ---
 
+## 🪙 Funded by $CLAWD
+
+This ecosystem is powered by **$CLAWD** — the sovereign token of the Clawd agent network on Solana.
+
+```
+Token:  $CLAWD
+Mint:   8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump
+Chain:  Solana
+```
+
+$CLAWD fuels the agent economy — pay-per-thought via x402, tier-gated access via ClawdRouter, and governance across the leviathan fleet.
+
+---
+
+## 🌐 Ecosystem Links
+
+| Resource | URL |
+|----------|-----|
+| 🏠 **Homepage** | [solanaclawd.com](https://solanaclawd.com) |
+| 🔐 **ZK Proofs** | [zk.x402.wtf](https://zk.x402.wtf) |
+| ⚡ **x402 Payments** | [x402.wtf](https://x402.wtf) |
+| 🤖 **Cheshire Terminal** | [cheshireterminal.ai](https://cheshireterminal.ai) |
+| 💬 **Telegram** | [t.me/clawdtoken](https://t.me/clawdtoken) |
+| 🐙 **Solana Clawd (OSS)** | [github.com/x402agent/solana-clawd](https://github.com/x402agent/solana-clawd) |
+| 🐙 **Clawd Autoresearch** | [github.com/solizardking/solana-clawd](https://github.com/solizardking/solana-clawd) |
+| 🤗 **HuggingFace Org** | [huggingface.co/solanaclawd](https://huggingface.co/solanaclawd) |
+
+---
+
 ## 📜 License
 
 8BIT Labs / Factory Division — Internal use.  
 Solana-native additions Apache-2.0. Nanochat MIT.  
-Honcho integration subject to Honcho terms.
+Honcho integration subject to Honcho terms.  
+$CLAWD is a utility token — not a security.
 
 ```
             ██████████
@@ -291,5 +321,15 @@ Honcho integration subject to Honcho terms.
          ██  LEAD THE  ██
         ██    WAY       ██
         ██████████████████
+                🦞
+     ——————————————————————
+     solanaclawd.com
+     x402.wtf
+     cheshireterminal.ai
+     t.me/clawdtoken
+     github.com/x402agent/solana-clawd
+     huggingface.co/solanaclawd
+     zk.x402.wtf
+```
 
-     🦞 Clawd Autoresearch Wiki
+> *"The shell molts. The laws do not. The claw builds."*
