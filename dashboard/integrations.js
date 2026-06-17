@@ -2,12 +2,16 @@
 // Jupiter Terminal, Helius DAS/WSS, Birdeye Token Metadata
 // ──────────────────────────────────────────────────────────────────
 
-const HELIUS_KEY = 'db05afdb-630a-420b-819f-2041776b67ce';
+// IMPORTANT: Set these via environment variables or your own config
+// export HELIUS_API_KEY="your-key-here"
+// export BIRDEYE_API_KEY="your-key-here"
+// export WALLET_ADDRESS="your-wallet-here"
+const HELIUS_KEY = process.env.HELIUS_API_KEY || 'YOUR_HELIUS_API_KEY';
 const HELIUS_RPC = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_KEY}`;
 const HELIUS_WSS = `wss://mainnet.helius-rpc.com/?api-key=${HELIUS_KEY}`;
-const HELIUS_API = `https://api.helius.xyz`;
-const TRACKED_WALLET = 'FZZFTXvg6Xdy3moNZiNcgJzjqEmbfbiit1S2qZnBJt4v';
-const BE_KEY2 = '85c9a78b768d4a83b3e84a041f229695';
+const HELIUS_API = process.env.HELIUS_API || 'https://api.helius.xyz';
+const TRACKED_WALLET = process.env.WALLET_ADDRESS || 'YOUR_WALLET_ADDRESS';
+const BE_KEY2 = process.env.BIRDEYE_API_KEY || 'YOUR_BIRDEYE_API_KEY';
 const SOL_MINT_FULL = 'So11111111111111111111111111111111111111112';
 
 // ── BIRDEYE TOKEN OVERVIEW ────────────────────────────────────────
