@@ -1,8 +1,30 @@
-# 🦞 ClawdBot Agent v2.0
+# 🦞 Clawd Autoresearch Wiki
 
-**Persistent Memory + Sentient Solana Intelligence**
+**Solana-Native AI Agent Ecosystem**
 LLM: OpenRouter GPT-5.4 (reasoning enabled) | Memory: ClawVault + Dexter Scratchpad
-Foundation: OpenClaw Agent Runtime + NanoClaw Framework
+Foundation: OpenClaw Agent Runtime + NanoClaw Framework + Solana Chat (ZK + Light Protocol)
+
+```
+Data Flow: Session → Observe → Score → Route → Store → Reflect → Promote
+OODA Loop: Observe → Orient → Decide → Act
+Memory:    Short-Term Context → Long-Term Vault → Graph Traversal
+Strategy:  RSI/EMA Indicators → ClawdBotStrategy → StrategyRegistry (auto-optimize)
+Bridge:    Python ↔ TypeScript HTTP API (port 3777)
+ZK:        Model inference attestation via Light Protocol compressed accounts
+SAS:       Model output credentialing via Solana Attestation Service
+```
+
+---
+
+## Repos in this workspace
+
+| Directory | Purpose |
+|-----------|---------|
+| `src/` | ClawdBot TypeScript agent (trading, analysis, memory, bridge) |
+| `solana-chat/` | **NEW** Solana-native LLM training harness (fork of Karpathy's nanochat) |
+| `nanochat-master/` | Original nanochat by Karpathy (reference) |
+| `dashboard/` | ClawdBot monitoring dashboard |
+| `vault/` | Agent memory vault (decisions, lessons, trades, research) |
 
 ```
 Data Flow: Session → Observe → Score → Route → Store → Reflect → Promote
@@ -17,56 +39,43 @@ Bridge:    Python ↔ TypeScript HTTP API (port 3777)
 ## Architecture
 
 ```
-ClawdBot Agent v2.0
-├── Strategy Engine (NEW)
-│   ├── src/strategy/types.ts         ← ClawdBotParams, StrategySignal, changelog
-│   ├── src/strategy/indicators.ts    ← RSI, EMA, ATR, Volume (pure math)
-│   ├── src/strategy/ClawdBotStrategy.ts  ← RSI+EMA cross strategy engine
-│   └── src/strategy/StrategyRegistry.ts ← Param management, auto-optimize, persistence
+Clawd Autoresearch Wiki
+├── ClawdBot Agent (TypeScript)
+│   ├── Strategy Engine       ← RSI/EMA cross, volume filters, ATR SL
+│   ├── ClawVault Memory      ← decisions, lessons, trades, research
+│   ├── Data Connectors       ← Helius, Birdeye, Aster DEX
+│   ├── Bridge Server :3777   ← Python ↔ TypeScript bridge
+│   └── OODA Loop             ← Autonomous decision cycle
 │
-├── ClawVault (Memory)
-│   ├── vault/decisions/     ← trade decisions + rationale
-│   ├── vault/lessons/       ← learned patterns, insights
-│   ├── vault/trades/        ← trade outcomes + P&L
-│   ├── vault/research/      ← experiment logs
-│   ├── vault/tasks/         ← agent task queue
-│   ├── vault/backlog/       ← deferred items
-│   └── vault/inbox/         ← raw observations (auto-routed)
+├── solana-chat/ (NEW — Solana-native LLM training)
+│   ├── nanochat/             ← Karpathy's engine (GPT, Muon, FA3, FP8)
+│   ├── solana/               ← Solana-native additions
+│   │   ├── dataset.py        ← 20 Solana-domain SFT Q&A pairs
+│   │   ├── tasks.py          ← Solana Knowledge Benchmark (18 MCQs)
+│   │   ├── zk_routing.py     ← ZK attestation engine
+│   │   ├── rpc.py            ← Solana RPC client (8 commands)
+│   │   └── light_protocol.py ← Light Protocol SDK (compressed tokens, PDAs, nullifiers, SAS)
+│   ├── perps/                ← 13 Solana perps tool functions
+│   ├── scripts/              ← Training, evaluation, data prep
+│   └── runs/                 ← Speedrun + scaling law scripts
 │
-├── .clawvault/ (Internal State)
-│   ├── graph-index.json     ← cross-document knowledge graph
-│   ├── strategy-state.json  ← strategy params + changelog (auto-optimize)
-│   └── last-checkpoint.json ← wake/sleep state
-│
-├── Data Connectors
-│   ├── Helius               ← Real-time Solana (RPC + WebSocket)
-│   ├── Birdeye              ← Token analytics, OHLCV, technicals
-│   └── Aster DEX            ← Perpetual futures, funding rates
-│
-├── Agent Core (ClawdBot v2)
-│   ├── OpenRouter GPT-5.4   ← With deep reasoning (reasoning_details preserved)
-│   ├── Dexter Scratchpad    ← JSONL work log + token tracking
-│   ├── OODA Loop            ← Autonomous decision cycle
-│   ├── Chat Interface       ← Natural language memory commands
-│   └── Trade Recorder       ← Auto-learns from outcomes
-│
-├── Bridge Server (port 3777)
-│   ├── /api/agent/chat      ← Chat with ClawdBot
-│   ├── /api/agent/observe   ← Trigger OODA observation
-│   ├── /api/agent/research  ← Start auto-research
-│   ├── /api/python/result   ← Report Python training results
-│   └── /api/automate/full   ← Full automation cycle
-│
-├── NanoClaw Integration
-│   ├── ClawdBot Channel      ← Routes NanoClaw messages to ClawdBot
-│   ├── Group Management     ← Multi-channel support
-│   └── Task Scheduler       ← Cron + interval tasks
-│
-└── Research Loop
-    ├── program.md           ← Research instructions
-    ├── strategy.md          ← Current best strategy (agent edits this)
-    └── Overnight Experiments← Hypothesis → Backtest → Accept/Reject
+├── nanochat-master/          ← Original nanochat by Karpathy (reference)
+├── dashboard/                ← ClawdBot monitoring dashboard
+└── vault/                    ← Agent memory vault
 ```
+
+---
+
+## Solana Chat — Key Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **ZK Routing** | Zero-knowledge attestation of model outputs via Light Protocol compressed accounts | ✅ |
+| **Light Protocol** | Compressed tokens (136x cheaper), compressed PDAs (106x cheaper), nullifiers, SAS credentialing | ✅ |
+| **Solana Knowledge Benchmark** | 18 MCQs across 6 domains (core, defi, security, agent, zk, constitution) | ✅ |
+| **SFT Dataset** | 20+ Q&A pairs covering PDAs, CPI, bonding curves, perps, constitution | ✅ |
+| **Perps Tool Suite** | 13 Solana perps tools (price, funding, orderbook, paper trade, risk assessment) | ✅ |
+| **Solana Speedrun** | End-to-end training pipeline targeting Solana domain proficiency | ✅ |
 
 ---
 
@@ -195,6 +204,71 @@ The `schema.sql` file contains the Supabase/PostgreSQL schema for:
 - [x] GPT-5.4 reasoning preservation across multi-turn
 - [x] Python ↔ TypeScript bridge server
 - [x] NanoClaw framework integration
+
+---
+
+## Getting Started with solana-chat
+
+```bash
+cd solana-chat
+
+# Generate Solana SFT training data
+python -m solana.dataset
+
+# Evaluate a trained model on Solana knowledge
+python -m scripts.solana_eval --model-tag d12
+
+# Train the Solana-native speedrun (requires 8xH100)
+bash runs/speedrun_solana.sh
+
+# Chat with the model over CLI
+python -m scripts.chat_cli
+
+# Or launch the web UI
+python -m scripts.chat_web
+```
+
+## Quick Validation
+
+Run this from the repo root to verify all modules:
+
+```bash
+python3 -c "
+import sys; sys.path.insert(0, 'solana-chat')
+from solana.dataset import SolanaDataset
+from solana.tasks import SOLANA_MCQ
+from solana.zk_routing import ZKAttestationEngine
+from solana.light_protocol import CompressedTokenClient, CompressedPDAClient, NullifierClient, AttestationClient
+import hashlib
+
+# Dataset: 20+ SFT pairs
+ds = SolanaDataset()
+pairs = ds.generate_sft_pairs(count=5)
+print(f'[OK] SolanaDataset: {len(pairs)} pairs generated')
+
+# Benchmark: 18 MCQs across 6 topics
+print(f'[OK] Benchmark: {len(SOLANA_MCQ)} questions across {len(set(q[\"topic\"] for q in SOLANA_MCQ))} topics')
+
+# ZK: attestation engine works
+att = ZKAttestationEngine().attest_output('test', 'output')
+print(f'[OK] ZK Attestation: {att.prompt_hash[:16]}...')
+
+# Light Protocol: compressed tokens 136x cheaper
+mint = CompressedTokenClient().create_mint('auth', 9)
+print(f'[OK] Light Protocol: compressed mint ({mint["compressed_account_cost_sol"]} SOL)')
+
+# Nullifiers: 15K lamports for double-spend prevention
+n = NullifierClient().create_nullifier('payer', b'unique-id')
+print(f'[OK] Nullifier: {n[\"cost_lamports\"]} lamports')
+
+# SAS: model output credentialing
+att = AttestationClient().attest_model_output('SolanaChat-v1', 'auth',
+    hashlib.sha256(b'p').hexdigest(), hashlib.sha256(b'o').hexdigest(), hashlib.sha256(b'w').hexdigest())
+print(f'[OK] SAS: {att[\"credential\"][\"name\"]} with {len(att[\"schema\"][\"fields\"])} schema fields')
+
+print('\\nAll solana-chat modules verified!')
+"
+```
 
 ---
 
