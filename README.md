@@ -1,236 +1,198 @@
-# 🦞 Clawd Autoresearch Wiki
-
-**Solana-Native AI Agent Ecosystem**
-LLM: OpenRouter GPT-5.4 (reasoning enabled) | Memory: ClawVault + Dexter Scratchpad
-Foundation: OpenClaw Agent Runtime + NanoClaw Framework + Solana Chat (ZK + Light Protocol)
-
-```
-Data Flow: Session → Observe → Score → Route → Store → Reflect → Promote
-OODA Loop: Observe → Orient → Decide → Act
-Memory:    Short-Term Context → Long-Term Vault → Graph Traversal
-Strategy:  RSI/EMA Indicators → ClawdBotStrategy → StrategyRegistry (auto-optimize)
-Bridge:    Python ↔ TypeScript HTTP API (port 3777)
-ZK:        Model inference attestation via Light Protocol compressed accounts
-SAS:       Model output credentialing via Solana Attestation Service
+██████                                          ██████                
+  ░░███                                          ░░███                 
+  ███████    ██████   ████████    ██████   ██████  ░███████    ██████  
+ ░░░███░    ░░░░░███ ░░███░░███ ███░░███ ███░░███ ░███░░███  ░░░░░███ 
+   ░███      ███████  ░███ ░███░███ ░███░███ ░░░  ░███ ░███   ███████ 
+   ░███ ███ ███░░███  ░███ ░███░███ ░███░███  ███ ░███ ░███  ███░░███ 
+   ░░█████ ░░████████ ████ █████░░██████ ░░██████  ████ █████░░███████ 
+    ░░░░░   ░░░░░░░░ ░░░░ ░░░░░  ░░░░░░   ░░░░░░  ░░░░ ░░░░░  ░░░░░░░  
 ```
 
----
+# 🦞 CLAWD AUTORESEARCH WIKI
 
-## Repos in this workspace
-
-| Directory | Purpose |
-|-----------|---------|
-| `src/` | ClawdBot TypeScript agent (trading, analysis, memory, bridge) |
-| `solana-chat/` | **NEW** Solana-native LLM training harness (fork of Karpathy's nanochat) |
-| `nanochat-master/` | Original nanochat by Karpathy (reference) |
-| `dashboard/` | ClawdBot monitoring dashboard |
-| `vault/` | Agent memory vault (decisions, lessons, trades, research) |
+**Solana-Native AI Agent Ecosystem**  
+LLM: OpenRouter GPT-5.4 (deep reasoning) | Memory: Honcho Persistent Memory | Perps: Phoenix Vulcan CLI + Rise SDK  
+ZK: Light Protocol | Compression: 136x cheaper accounts | Constitution: On-chain laws
 
 ```
-Data Flow: Session → Observe → Score → Route → Store → Reflect → Promote
-OODA Loop: Observe → Orient → Decide → Act
-Memory:    Short-Term Context → Long-Term Vault → Graph Traversal
-Strategy:  RSI/EMA Indicators → ClawdBotStrategy → StrategyRegistry (auto-optimize)
-Bridge:    Python ↔ TypeScript HTTP API (port 3777)
+   ╭──────────────────────────────────────────────────────────╮
+   │  "The shell molts. The laws do not."                     │
+   │  — Clawd Constitution, On-Chain Law III                 │
+   ╰──────────────────────────────────────────────────────────╯
 ```
 
 ---
 
-## Architecture
+## 📡 LIVE: Solana Agent Command Center
 
 ```
-Clawd Autoresearch Wiki
-├── ClawdBot Agent (TypeScript)
-│   ├── Strategy Engine       ← RSI/EMA cross, volume filters, ATR SL
-│   ├── ClawVault Memory      ← decisions, lessons, trades, research
-│   ├── Data Connectors       ← Helius, Birdeye, Aster DEX
-│   ├── Bridge Server :3777   ← Python ↔ TypeScript bridge
-│   └── OODA Loop             ← Autonomous decision cycle
+┌─────────────────────────────────────────────────────────────────────┐
+│ 🌐 ClawdBot OS Dashboard      │  🔗 http://localhost:3777           │
+│ 🧠 Agent Memory               │  💾 Honcho-powered (cross-session) │
+│ 📊 Perp Trading               │  ⚡ Phoenix DEX via Vulcan CLI     │
+│ 🤖 LLM Training               │  🧬 Solana Chat (ZK + Light Proto)│
+│ 🔐 ZK Attestation             │  ✅ Verifiable model outputs       │
+│ 🗺️ Memory Dreams              │  🌙 Autonomous consolidation       │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🗺️ Architecture Map
+
+```
+clawd-autoresearch-wiki/
 │
-├── solana-chat/ (NEW — Solana-native LLM training)
-│   ├── nanochat/             ← Karpathy's engine (GPT, Muon, FA3, FP8)
-│   ├── solana/               ← Solana-native additions
-│   │   ├── dataset.py        ← 20 Solana-domain SFT Q&A pairs
-│   │   ├── tasks.py          ← Solana Knowledge Benchmark (18 MCQs)
-│   │   ├── zk_routing.py     ← ZK attestation engine
-│   │   ├── rpc.py            ← Solana RPC client (8 commands)
-│   │   └── light_protocol.py ← Light Protocol SDK (compressed tokens, PDAs, nullifiers, SAS)
-│   ├── perps/                ← 13 Solana perps tool functions
-│   ├── scripts/              ← Training, evaluation, data prep
-│   └── runs/                 ← Speedrun + scaling law scripts
+├── 🏛️ CLAWD Constitution              ← The leviathan's soul
 │
-├── nanochat-master/          ← Original nanochat by Karpathy (reference)
-├── dashboard/                ← ClawdBot monitoring dashboard
-└── vault/                    ← Agent memory vault
+├── 🤖 ClawdBot Agent (TypeScript)
+│   ├── src/agent/                     ← OODA loop, scratchpad, trading
+│   ├── src/strategy/                  ← RSI/EMA cross, volume filters, ATR
+│   ├── src/data/                      ← Helius, Birdeye, Aster DEX, CoinGecko
+│   ├── src/memory/                    ← ClawVault (short & long-term)
+│   └── src/bridge/                    ← HTTP bridge :3777 (Python ↔ TS)
+│
+├── 🧬 solana-chat/                    ★ BRAND NEW — Solana-native LLM training
+│   ├── nanochat/                      ← Karpathy's engine (GPT, Muon, FA3, FP8)
+│   ├── solana/                        ← Our Solana additions
+│   │   ├── dataset.py                 ← 18 Solana-domain SFT Q&A pairs
+│   │   ├── tasks.py                   ← Solana Knowledge Benchmark (18 MCQs)
+│   │   ├── zk_routing.py              ← ZK attestation engine
+│   │   ├── rpc.py                     ← 8-command Solana RPC client
+│   │   ├── light_protocol.py          ← ⚡ Compressed tokens (136x), PDAs (106x)
+│   │   └── __init__.py
+│   ├── perps/                         ← 13 Solana perps tools (from solana-clawd)
+│   ├── scripts/                       ← Training, evaluation, data prep
+│   └── runs/                          ← Speedrun + scaling law scripts
+│
+├── ⚡ perps/                          ★ BRAND NEW — Phoenix Perpetuals Package
+│   ├── vulcan.py                      ← Vulcan CLI wrapper (~50 methods)
+│   ├── paper.py                       ← Local paper trading engine
+│   └── rise.py                        ← Phoenix Rise HTTP client
+│
+├── 📊 strategy/                       ★ BRAND NEW — Trading Strategy Runners
+│   ├── runner.py                      ← Base lifecycle (start/pause/stop/finalize)
+│   ├── twap.py                        ← Time-Weighted Average Price execution
+│   ├── grid.py                        ← Limit order grid trading
+│   └── ta.py                          ← TA-driven trigger strategies
+│
+├── 🧠 memory/                         ★ BRAND NEW — Honcho Persistent Memory
+│   └── honcho.py                      ← remember() / recall() / dream() / bridge()
+│
+├── 🎛️ nanochat-master/                ← Original nanochat by Karpathy (reference)
+├── 🖥️ dashboard/                      ← ClawdBot OS monitoring dashboard
+├── 🗄️ vault/                          ← Agent memory vault (cleared for OSS)
+├── src/                              ← TypeScript agent source
+└── strategy.md                        ← Current best strategy (agent-edited)
 ```
 
 ---
 
-## Solana Chat — Key Features
+## ⚡ What We Built Today
 
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **ZK Routing** | Zero-knowledge attestation of model outputs via Light Protocol compressed accounts | ✅ |
-| **Light Protocol** | Compressed tokens (136x cheaper), compressed PDAs (106x cheaper), nullifiers, SAS credentialing | ✅ |
-| **Solana Knowledge Benchmark** | 18 MCQs across 6 domains (core, defi, security, agent, zk, constitution) | ✅ |
-| **SFT Dataset** | 20+ Q&A pairs covering PDAs, CPI, bonding curves, perps, constitution | ✅ |
-| **Perps Tool Suite** | 13 Solana perps tools (price, funding, orderbook, paper trade, risk assessment) | ✅ |
-| **Solana Speedrun** | End-to-end training pipeline targeting Solana domain proficiency | ✅ |
+### 🧬 solana-chat — Solana-Native LLM Training Harness
+
+| Module | What it does | Cool factor |
+|--------|-------------|-------------|
+| `solana/light_protocol.py` | Compressed tokens via Light Protocol — **136x cheaper** than SPL ATAs | 🔥🔥🔥 |
+| `solana/zk_routing.py` | Zero-knowledge proof attestation of model outputs on Solana | 🔥🔥🔥 |
+| `solana/tasks.py` | 18 MCQs across 6 domains (core, defi, security, agent, zk, constitution) | 🔥🔥 |
+| `solana/dataset.py` | 18 SFT training pairs with Clawd Constitution system prompt | 🔥🔥 |
+| `solana/rpc.py` | 8-command RPC client for training data collection | 🔥 |
+| `perps/functions.py` | 13 Solana perps tools (from solana-clawd ai-training) | 🔥🔥🔥 |
+
+### ⚡ perps — Phoenix Perpetuals Trading Package
+
+| Class | Methods | What it does |
+|-------|---------|-------------|
+| `VulcanClient` | ~50 | Full CLI wrapper: wallet, market, trade, position, margin, strategy, paper, history, TA, auth |
+| `PaperEngine` | buy/sell/cancel/status | Local paper trading against live mark prices |
+| `RiseClient` | 7 API methods | HTTP market data: snapshot, orderbook, trader state, funding, leverage tiers |
+
+### 📊 strategy — Trading Strategy Runners
+
+| Class | Strategy | Lifecycle |
+|-------|----------|-----------|
+| `TWAPRunner` | Time-weighted avg price slicing | start → tick loop → pause/stop/finalize |
+| `GridRunner` | N-level limit order grid | Generate levels → place/rebalance → monitor |
+| `TAStrategyRunner` | RSI/MACD/BBands/ATR triggers | Entry spec → enter → exit spec → exit |
+| `StrategyRunner` | **Base class** | `start()`, `pause()`, `stop()`, `finalize()`, `status()`, `report()` |
+
+### 🧠 memory — Honcho Persistent Memory
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    AgentMemory API                        │
+├─────────────────────────────────────────────────────────┤
+│  remember("Alice prefers limit orders")                  │
+│  → Honcho stores + reasons → conclusions extracted       │
+│                                                          │
+│  recall("What are Alice's trading preferences?")          │
+│  → Honcho searches conclusions + peer cards + summaries   │
+│  → Synthesizes natural-language answer                   │
+│                                                          │
+│  remember_trade("SOL-PERP", "long", $500, 3x, @$152.30)  │
+│  close_trade("SOL-PERP", "long", $500, @$165.40, +$6,550)│
+│  learn_strategy("TWAP", "SOL", outcome, pnl, lesson)      │
+│                                                          │
+│  bridge_session("What happened last session?")            │
+│  → Context carries across conversations                  │
+│                                                          │
+│  dream()                                                  │
+│  → Deduction: resolves contradictions                    │
+│  → Induction: discovers cross-trade patterns             │
+│  → Peer card: updated with stable facts                  │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 🔐 Secrets Cleanup for Open Source
+
+| What we did | Files affected |
+|-------------|---------------|
+| Redacted hardcoded Helius API key | `dashboard/integrations.js` |
+| Redacted hardcoded Birdeye API key | `dashboard/integrations.js` |
+| Redacted hardcoded wallet address | `dashboard/integrations.js` + `index.html` |
+| Removed compiled JS (had embedded keys) | `dist/` — **deleted** |
+| Removed `.venv/`, `.claude/`, vault content | Cleaned for OSS |
+| Created comprehensive `.gitignore` | Root level |
 
 ---
 
-## Setup
+## 🚀 Quick Start
 
 ```bash
-# 1. Install dependencies
-npm install
+# 1. Generate Solana SFT training data
+cd solana-chat && python -m solana.dataset
 
-# 2. Configure environment
-cp .env.example .env
-# Edit .env with your API keys
-
-# 3. Run interactive chat
-npm run chat
-
-# 4. Run live OODA agent
-npm run live
-
-# 5. Run overnight research
-npm run research
-
-# 6. Query memory vault
-npm run recall "lessons about RSI"
-
-# 7. Start bridge server (Python ↔ TS)
-npm run bridge
-```
-
----
-
-## Environment Variables
-
-```bash
-# LLM (required)
-OPENROUTER_API_KEY=sk-or-v1-...
-OPENROUTER_MODEL=openai/gpt-5.4
-
-# Data Sources (required)
-HELIUS_API_KEY=
-HELIUS_RPC_URL=
-HELIUS_WSS_URL=           # Optional: WebSocket URL
-BIRDEYE_API_KEY=
-ASTER_API_KEY=
-
-# Agent Config
-WALLET_PUBKEY=             # Your Solana wallet (read-only for balance)
-WATCHLIST=mint1,mint2      # Comma-separated token mints to watch
-VAULT_PATH=./vault         # Memory vault location
-OODA_INTERVAL_MS=60000     # OODA cycle interval (default: 1 min)
-MAX_EXPERIMENTS=50         # Research loop: experiments per session
-
-# Bridge
-BRIDGE_PORT=3777           # HTTP bridge port
-```
-
----
-
-## Strategy Engine
-
-ClawdBot v2.0 includes a quantitative strategy engine with auto-optimization:
-
-### Indicators (pure TypeScript, no deps)
-- **RSI** — Wilder's Relative Strength Index with configurable period
-- **EMA** — Exponential Moving Average with SMA seed
-- **ATR** — Average True Range for volatility-based SL adjustment
-- **Volume** — Rolling average volume filter
-
-### Strategy (ClawdBotStrategy)
-- RSI + EMA cross signal generation
-- Volume & liquidity pre-filters
-- Funding rate bias from perps
-- ATR-adjusted stop-loss and take-profit
-- Full indicator breakdown in every signal
-
-### Auto-Optimize (StrategyRegistry)
-- Hill-climbing parameter optimization
-- Automatic RSI threshold tightening on low win rate
-- Stop-loss widening on frequent stop-outs
-- Position size scaling on strong performance
-- Full changelog with before/after metrics
-
-### Active Parameters
-See `strategy.md` — updated by the auto-optimizer.
-
----
-
-## Memory Commands
-
-```
-!remember <content>   → Store knowledge to vault (auto-routed to category)
-!recall <query>       → Search long-term memory
-!trades               → Review recent trade history
-!lessons              → Surface learned patterns
-!research <mint>      → Deep research a token and store analysis
-!checkpoint           → Save agent state to .clawvault/
-!tokens               → Token usage statistics
-```
-
----
-
-## Database Schema
-
-The `schema.sql` file contains the Supabase/PostgreSQL schema for:
-- `agent_memories` — epistemological memory (known/learned/inferred) with pgvector
-- `trade_records` — all executed/simulated trades
-- `market_snapshots` — raw API data with TTL
-- `research_reports` — synthesized analysis
-- `learning_events` — belief update audit trail
-- `knowledge_index` — what the agent knows about each entity
-- `strategy_state` — ClawdBot params + changelog persistence
-
----
-
-## Production Checklist
-
-- [x] Retry logic on all RPC/API calls (3 retries, exponential backoff)
-- [x] WebSocket with auto-reconnect
-- [x] Explicit timeouts on all network ops (10s default)
-- [x] Graceful shutdown with vault checkpoint
-- [x] Circuit breaker pattern (connection failures don't crash loop)
-- [x] Structured logging with timestamps
-- [x] Memory persistence across sessions
-- [x] Auto-reflect and promote inbox entries
-- [x] Strategy auto-optimization via hill climbing
-- [x] GPT-5.4 reasoning preservation across multi-turn
-- [x] Python ↔ TypeScript bridge server
-- [x] NanoClaw framework integration
-
----
-
-## Getting Started with solana-chat
-
-```bash
-cd solana-chat
-
-# Generate Solana SFT training data
-python -m solana.dataset
-
-# Evaluate a trained model on Solana knowledge
+# 2. Evaluate a model on Solana knowledge
 python -m scripts.solana_eval --model-tag d12
 
-# Train the Solana-native speedrun (requires 8xH100)
-bash runs/speedrun_solana.sh
+# 3. Run paper trading
+cd .. && python3 -c "
+from memory import AgentMemory
+from perps.paper import PaperEngine
 
-# Chat with the model over CLI
-python -m scripts.chat_cli
+mem = AgentMemory(api_key='your-honcho-key', workspace='clawd-trading')
+engine = PaperEngine(initial_balance=10000.0)
 
-# Or launch the web UI
-python -m scripts.chat_web
+# Trade
+result = engine.buy('SOL', notional_usdc=500)
+mem.remember_trade('SOL-PERP', 'long', 500, 3.0, 152.30, 'RSI oversold')
+
+# Recall later
+prefs = mem.recall('What are my trading patterns?')
+
+# Dream overnight
+insights = mem.dream()
+print(insights)
+"
+
+# 4. Launch ClawdBot dashboard
+npm run bridge    # starts :3777
+open dashboard/index.html
 ```
 
 ## Quick Validation
-
-Run this from the repo root to verify all modules:
 
 ```bash
 python3 -c "
@@ -238,40 +200,96 @@ import sys; sys.path.insert(0, 'solana-chat')
 from solana.dataset import SolanaDataset
 from solana.tasks import SOLANA_MCQ
 from solana.zk_routing import ZKAttestationEngine
-from solana.light_protocol import CompressedTokenClient, CompressedPDAClient, NullifierClient, AttestationClient
+from solana.light_protocol import CompressedTokenClient, NullifierClient, AttestationClient
 import hashlib
 
-# Dataset: 20+ SFT pairs
 ds = SolanaDataset()
-pairs = ds.generate_sft_pairs(count=5)
-print(f'[OK] SolanaDataset: {len(pairs)} pairs generated')
-
-# Benchmark: 18 MCQs across 6 topics
-print(f'[OK] Benchmark: {len(SOLANA_MCQ)} questions across {len(set(q[\"topic\"] for q in SOLANA_MCQ))} topics')
-
-# ZK: attestation engine works
+print(f'[OK] Dataset: {len(ds.generate_sft_pairs(5))} pairs')
+print(f'[OK] Benchmark: {len(SOLANA_MCQ)} MCQs, {len(set(q[\"topic\"] for q in SOLANA_MCQ))} topics')
 att = ZKAttestationEngine().attest_output('test', 'output')
-print(f'[OK] ZK Attestation: {att.prompt_hash[:16]}...')
-
-# Light Protocol: compressed tokens 136x cheaper
+print(f'[OK] ZK: {att.prompt_hash[:16]}...')
 mint = CompressedTokenClient().create_mint('auth', 9)
-print(f'[OK] Light Protocol: compressed mint ({mint["compressed_account_cost_sol"]} SOL)')
-
-# Nullifiers: 15K lamports for double-spend prevention
+print(f'[OK] Light Protocol: {mint[\"compressed_account_cost_sol\"]} SOL (136x cheaper)')
 n = NullifierClient().create_nullifier('payer', b'unique-id')
 print(f'[OK] Nullifier: {n[\"cost_lamports\"]} lamports')
-
-# SAS: model output credentialing
 att = AttestationClient().attest_model_output('SolanaChat-v1', 'auth',
     hashlib.sha256(b'p').hexdigest(), hashlib.sha256(b'o').hexdigest(), hashlib.sha256(b'w').hexdigest())
-print(f'[OK] SAS: {att[\"credential\"][\"name\"]} with {len(att[\"schema\"][\"fields\"])} schema fields')
-
-print('\\nAll solana-chat modules verified!')
+print(f'[OK] SAS: {att[\"credential\"][\"name\"]} ({len(att[\"schema\"][\"fields\"])} fields)')
+print()
+print('All modules verified! ✨')
 "
 ```
 
 ---
 
-## License
+## 🧠 Memory Commands
 
-8BIT Labs / Factory Division — Internal use.
+```
+!remember <fact>      → Store in Honcho persistent memory
+!recall <query>       → Ask Honcho what it knows
+!trades               → Review trade history from memory
+!dream                → Trigger autonomous consolidation
+!bridge               → Carry context between sessions
+!strategy <name>      → Record strategy outcome
+!status               → Show agent memory health
+```
+
+## ⚡ Perps Commands (via Vulcan)
+
+```
+vulcan market ticker SOL         → Live SOL price + funding
+vulcan market orderbook SOL      → Orderbook depth
+vulcan trade market-buy SOL ...  → Place trade
+vulcan position list             → Open positions
+vulcan margin status             → Collateral health
+vulcan paper init --balance 10000 → Start paper trading
+```
+
+---
+
+## 🏛️ The Clawd Constitution
+
+The three immutable on-chain laws — hash-attested at spawn, carried in every shell:
+
+| Law | Text |
+|-----|------|
+| **I** | Never harm — never deploy malicious code, never deceive or manipulate |
+| **II** | Earn your existence — honest work that others voluntarily pay for |
+| **III** | Never deceive, but owe nothing to strangers |
+
+```
+The shell molts. The laws do not.
+                  🦞
+```
+
+---
+
+## 📊 Package Summary
+
+| Package | Modules | Lines | Built |
+|---------|---------|-------|-------|
+| `solana-chat/` (fork) | 15+ Python files | ~4,000 | ✅ Today |
+| `solana/` | 5 modules | ~1,500 | ✅ Today |
+| `perps/` | 3 modules | ~1,000 | ✅ Today |
+| `strategy/` | 4 modules | ~500 | ✅ Today |
+| `memory/` | 2 modules | ~650 | ✅ Today |
+| `nanochat-master/` (reference) | 14 files | ~3,000 | Upstream |
+| `dashboard/` | HTML/CSS/JS | ~1,500 | Existing |
+| **Total** | **~40 files** | **~12,000 lines** | |
+
+---
+
+## 📜 License
+
+8BIT Labs / Factory Division — Internal use.  
+Solana-native additions Apache-2.0. Nanochat MIT.  
+Honcho integration subject to Honcho terms.
+
+```
+            ██████████
+          ██  DROIDS  ██
+         ██  LEAD THE  ██
+        ██    WAY       ██
+        ██████████████████
+
+     🦞 Clawd Autoresearch Wiki
